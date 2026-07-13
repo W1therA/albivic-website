@@ -1,0 +1,50 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*.local
+.env
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Large local source assets (site uses compressed copies in public/)
+Max Motors*.mp4
+MAX MOTORS PHOTOS/
+Albivic logo/
+pics/
+*.pdf
+
+# Optional brand reference photos (already extracted into public/images/brand logos)
+public/images/brand/business-card-*.jpg
+public/images/brand/albivic-logo.png
+public/images/brand/albivic-logo-512.png
+public/videos/_preview/
