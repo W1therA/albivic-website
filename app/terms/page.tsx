@@ -1,32 +1,18 @@
 import type { Metadata } from "next";
-import { brand } from "@/lib/content";
+import { company } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Terms",
-};
+export const metadata: Metadata = { title: "Terms" };
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-mist">
-      <div className="mx-auto max-w-3xl px-5 pb-20 pt-28 md:px-8 md:pt-32">
-        <h1 className="font-display text-4xl font-bold text-ink">Terms</h1>
-        <div className="mt-6 space-y-4 text-sm leading-relaxed text-ink-soft">
-          <p>
-            {brand.name} products are grooming and training tools. They are not
-            medical devices and are not intended to diagnose, treat, cure, or
-            permanently alter bone structure.
-          </p>
-          <p>
-            Stop using any training tool if you feel pain. Consult a
-            professional for medical concerns about jaw, skin, sleep, or hair
-            loss.
-          </p>
-          <p>
-            Checkout on this site is currently a demo. Live sales begin once
-            payment and fulfillment are connected.
-          </p>
-        </div>
-      </div>
+    <div className="mx-auto max-w-3xl px-5 pb-20 pt-28 md:px-8 md:pt-32">
+      <h1 className="font-display text-4xl font-bold text-charcoal">Terms of Use</h1>
+      <p className="mt-6 leading-relaxed text-steel">
+        Content on this website is provided by {company.legalName} for general information about our
+        construction services. Project details and availability may change. Estimates provided are
+        subject to site conditions and a formal written agreement. By using this site you agree not
+        to misuse form submissions or scrape content without permission.
+      </p>
     </div>
   );
 }

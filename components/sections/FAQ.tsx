@@ -1,46 +1,23 @@
-"use client";
-
-import { useState } from "react";
 import { faqs } from "@/lib/content";
+import { Accordion } from "@/components/ui/Accordion";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-
   return (
-    <section className="bg-fog">
-      <div className="mx-auto max-w-3xl px-5 py-20 md:px-8 md:py-28">
-        <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl text-balance">
-          Straight answers.
-        </h2>
-        <p className="mt-3 text-ink-soft">
-          No miracle claims. Just tools and a protocol you can stick to.
-        </p>
-
-        <div className="mt-10 divide-y divide-ink/10 border-y border-ink/10">
-          {faqs.map((item, index) => {
-            const isOpen = open === index;
-            return (
-              <div key={item.q}>
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
-                  onClick={() => setOpen(isOpen ? null : index)}
-                  aria-expanded={isOpen}
-                >
-                  <span className="font-display text-lg font-semibold text-ink">
-                    {item.q}
-                  </span>
-                  <span className="text-accent">{isOpen ? "−" : "+"}</span>
-                </button>
-                {isOpen && (
-                  <p className="pb-5 text-sm leading-relaxed text-ink-soft md:text-base">
-                    {item.a}
-                  </p>
-                )}
-              </div>
-            );
-          })}
-        </div>
+    <section className="bg-sand py-20 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-2 md:px-8 lg:gap-20">
+        <AnimatedSection>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-copper">FAQ</p>
+          <h2 className="mt-3 font-display text-3xl font-bold text-charcoal md:text-5xl">
+            Questions we hear most often
+          </h2>
+          <p className="mt-4 text-steel leading-relaxed">
+            Can&apos;t find what you need? Reach out and we&apos;ll get you answers quickly.
+          </p>
+        </AnimatedSection>
+        <AnimatedSection delay={0.1}>
+          <Accordion items={faqs} />
+        </AnimatedSection>
       </div>
     </section>
   );
