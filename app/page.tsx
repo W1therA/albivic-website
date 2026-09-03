@@ -1,17 +1,17 @@
-import { ContactSection } from "@/components/sections/ContactSection";
 import { FAQ } from "@/components/sections/FAQ";
 import { Hero } from "@/components/sections/Hero";
-import { Services } from "@/components/sections/Services";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { Kit } from "@/components/sections/Kit";
+import { Protocol } from "@/components/sections/Protocol";
+import { Stack } from "@/components/sections/Stack";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Services />
-      <WhyChooseUs />
+      <Protocol />
+      <Kit />
+      <Stack />
       <FAQ />
-      <ContactSection variant="preview" />
     </>
   );
 }
