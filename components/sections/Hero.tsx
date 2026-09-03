@@ -7,15 +7,15 @@ export function Hero() {
     <section className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1621607512214-68297471b618?auto=format&fit=crop&w=2000&q=80"
-          alt="Men’s grooming tools on a concrete bathroom counter"
+          src="/images/products/hero.jpg"
+          alt="Men’s barbershop grooming atmosphere"
           fill
           priority
-          className="hero-pan object-cover"
+          className="hero-pan object-cover object-[70%_center]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-mist via-mist/88 to-mist/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-mist via-transparent to-mist/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-mist via-mist/80 to-transparent md:via-mist/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-mist/90 via-transparent to-mist/25" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-end px-5 pb-16 pt-28 md:items-center md:px-8 md:pb-24">
