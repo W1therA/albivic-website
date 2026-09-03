@@ -1,225 +1,184 @@
-export const company = {
-  name: "Albivic Construction",
-  legalName: "Albivic Construction LTD",
-  tagline: "Quality Never Goes Out of Style",
-  principal: "Victor Rotaru",
-  phone: "(306) 292-7081",
-  email: "victorrotaru@hotmail.com",
-  address: "6 Pelletier Rd",
-  location: "RM of Dundurn, SK",
-  serviceArea: "Western Canada & Northern territories",
+export const brand = {
+  name: "SharpStack",
+  tagline: "The daily stack for a sharper look.",
+  description:
+    "Men’s looks-optimization tools for skin, jaw, hair, and posture — built as simple protocols, not a 10-step beauty routine.",
+  email: "hello@sharpstack.co",
+  shippingNote: "Ships in 3–7 days from US warehouses where available.",
 };
 
 export const navLinks = [
-  { href: "/#services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/#protocol", label: "Protocol" },
+  { href: "/#stack", label: "The Stack" },
+  { href: "/#kit", label: "Morning Kit" },
+  { href: "/shop", label: "Shop" },
 ];
 
-export const services = [
+export type Product = {
+  id: string;
+  slug: string;
+  name: string;
+  price: number;
+  compareAt?: number;
+  blurb: string;
+  angle: string;
+  category: "skin" | "jaw" | "hair" | "frame" | "kit";
+  image: string;
+  imageAlt: string;
+  featured?: boolean;
+  bundleIds?: string[];
+};
+
+export const products: Product[] = [
   {
-    id: "steel-buildings",
-    title: "Industrial Steel Buildings",
-    description:
-      "Steel buildings and foundations for shops, warehouses, and commercial facilities — engineered for Canadian climates.",
-    video: "/videos/steel-buildings.mp4",
-    href: "/contact",
+    id: "morning-sharp-kit",
+    slug: "morning-sharp-kit",
+    name: "Morning Sharp Kit",
+    price: 54,
+    compareAt: 72,
+    blurb: "Ice roller, pore strips, and face razor — the 3-minute reset before work, gym, or camera.",
+    angle: "Start here",
+    category: "kit",
+    image:
+      "https://images.unsplash.com/photo-1621607512214-68297471b618?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Minimal men’s grooming tools on a concrete counter",
+    featured: true,
+    bundleIds: ["ice-roller", "pore-strips", "face-razor"],
   },
   {
-    id: "design-build",
-    title: "Residential ICF Construction",
-    description:
-      "ICF blocks from foundation up to the roof — durable, efficient homes and residential builds.",
-    video: "/videos/design-build.mp4",
-    href: "/contact",
+    id: "ice-roller",
+    slug: "steel-ice-roller",
+    name: "Steel Ice Roller",
+    price: 28,
+    blurb: "Cold pass for morning puffiness and post-shave calm. Stainless, no fuss.",
+    angle: "Skin",
+    category: "skin",
+    image:
+      "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Cool metal facial roller on dark surface",
+    featured: true,
   },
   {
-    id: "demolition",
-    title: "Demolition & Reconstruction",
-    description:
-      "Safe demolition and full rebuilds — including complex community projects like arenas and public facilities.",
-    video: "/videos/commercial.mp4",
-    href: "/gallery",
+    id: "jaw-trainer",
+    slug: "jawline-trainer",
+    name: "Jawline Trainer",
+    price: 24,
+    blurb: "Pocket resistance chew for short daily jaw work. Train smart — stop if it hurts.",
+    angle: "Jaw",
+    category: "jaw",
+    image:
+      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Focused athletic training atmosphere",
+    featured: true,
   },
   {
-    id: "crane",
-    title: "Foundations & Heavy Install",
-    description:
-      "Solid foundations and heavy equipment coordination for industrial shops and specialized builds.",
-    video: "/videos/foundations.mp4",
-    href: "/contact",
+    id: "pore-strips",
+    slug: "pore-cleanup-strips",
+    name: "Pore Cleanup Strips",
+    price: 16,
+    blurb: "Nose and T-zone strips for a cleaner look before photos or a night out.",
+    angle: "Skin",
+    category: "skin",
+    image:
+      "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Clean skincare packaging on light surface",
+  },
+  {
+    id: "face-razor",
+    slug: "precision-face-razor",
+    name: "Precision Face Razor",
+    price: 18,
+    blurb: "Dermaplane-style face razor for smoother texture and a cleaner jaw shadow.",
+    angle: "Skin",
+    category: "skin",
+    image:
+      "https://images.unsplash.com/photo-1620916567138-a384d8a68aba?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Precision grooming tool close-up",
+  },
+  {
+    id: "scalp-stack",
+    slug: "scalp-density-stack",
+    name: "Scalp Density Stack",
+    price: 26,
+    blurb: "Scalp massager plus rosemary-forward oil for a simple hairline routine.",
+    angle: "Hair",
+    category: "hair",
+    image:
+      "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Hair care bottle and tools on bathroom shelf",
+    featured: true,
+  },
+  {
+    id: "mouth-tape",
+    slug: "sleep-mouth-tape",
+    name: "Sleep Mouth Tape",
+    price: 14,
+    blurb: "Gentle overnight tape for nasal breathing habits. Remove if uncomfortable.",
+    angle: "Recovery",
+    category: "frame",
+    image:
+      "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Calm bedroom sleep setting",
+  },
+  {
+    id: "posture-band",
+    slug: "frame-posture-band",
+    name: "Frame Posture Band",
+    price: 36,
+    blurb: "Light scapular support for desk days — stand taller, fill the frame better.",
+    angle: "Frame",
+    category: "frame",
+    image:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Athlete standing tall in training space",
   },
 ];
 
-export const whyChooseUs = [
+export const protocolSteps = [
   {
-    title: "Expertise",
-    description:
-      "Years of hands-on experience delivering steel buildings and specialized construction across Western Canada and the North.",
+    step: "01",
+    title: "Cold pass",
+    text: "Two minutes with the ice roller — depuff, wake up, look camera-ready.",
   },
   {
-    title: "Quality",
-    description:
-      "Premium materials and craftsmanship on every project — from structural steel to finishing details that last.",
+    step: "02",
+    title: "Clean surface",
+    text: "Strips or face razor when you need a cleaner T-zone and smoother texture.",
   },
   {
-    title: "Reliability",
-    description:
-      "On-time delivery with clear communication. We plan carefully and keep you informed at every stage.",
-  },
-  {
-    title: "Reach",
-    description:
-      "Proven capability from Saskatchewan shops to remote northern sites in Nunavut — we go where the work is.",
+    step: "03",
+    title: "Train the frame",
+    text: "Short jaw or posture work. Consistency beats extreme routines.",
   },
 ];
 
 export const faqs = [
   {
-    question: "What services do you offer?",
-    answer:
-      "We specialize in pre-engineered steel buildings, design-build commercial shops, demolition and reconstruction, and crane or heavy equipment installation for industrial facilities.",
+    q: "Is this skincare for women rebranded?",
+    a: "No. SharpStack is built around men’s looks-optimization: short protocols, steel tools, and framing that fits gym, work, and camera — not spa language.",
   },
   {
-    question: "Do you offer free estimates?",
-    answer:
-      "Yes. Contact us with your project details and we will provide a free estimate tailored to your scope, timeline, and location.",
+    q: "Do these products change bone structure?",
+    a: "No. We sell grooming and training tools that support how you look day to day. We don’t promise surgical or permanent bone changes.",
   },
   {
-    question: "What areas do you serve?",
-    answer:
-      "We are based in Saskatchewan and serve Western Canada and Northern territories. Recent work includes projects in Saskatchewan, British Columbia, and Rankin Inlet, Nunavut.",
+    q: "How fast do you ship?",
+    a: brand.shippingNote,
   },
   {
-    question: "Are you licensed and insured?",
-    answer:
-      "Yes. Albivic Construction operates with appropriate licensing and insurance for the jurisdictions where we work. Ask us for current certificates when you request a quote.",
-  },
-  {
-    question: "Do you offer warranties on your work?",
-    answer:
-      "We stand behind our workmanship. Warranty terms depend on the project scope and materials used — we will outline coverage clearly in your contract.",
+    q: "What if something doesn’t work for me?",
+    a: "Email us within 14 days of delivery and we’ll sort a swap or refund on unopened items. Tool wear from normal use isn’t covered.",
   },
 ];
 
-export type Project = {
-  id: string;
-  title: string;
-  year: string;
-  location: string;
-  description: string;
-  folder: string;
-  images: string[];
-};
+export function getProduct(slug: string) {
+  return products.find((p) => p.slug === slug);
+}
 
-export const projects: Project[] = [
-  {
-    id: "max-motors",
-    title: "Max Motors Facility",
-    year: "2024",
-    location: "Saskatchewan",
-    description:
-      "Full commercial facility build for Max Motors — auto sales, service, and collision centre under one roof.",
-    folder: "max-motors",
-    images: [
-      "/images/projects/max-motors/max-motors-01.jpg",
-      "/images/projects/max-motors/max-motors-02.jpg",
-      "/images/projects/max-motors/max-motors-03.jpg",
-      "/images/projects/max-motors/max-motors-04.jpg",
-      "/images/projects/max-motors/max-motors-05.jpg",
-      "/images/projects/max-motors/max-motors-06.jpg",
-      "/images/projects/max-motors/max-motors-07.jpg",
-      "/images/projects/max-motors/max-motors-08.jpg",
-      "/images/projects/max-motors/max-motors-09.jpg",
-      "/images/projects/max-motors/max-motors-10.jpg",
-    ],
-  },
-  {
-    id: "ituna-arena",
-    title: "Ituna Community Arena",
-    year: "2024",
-    location: "Ituna, SK",
-    description:
-      "Demolition of the 1963 arena and full custom-designed rebuild. Grand opening January 11, 2025 — Home of the Avalanche.",
-    folder: "ituna-arena",
-    images: [
-      "/images/projects/ituna-arena/plaque.jpg",
-      "/images/projects/ituna-arena/ituna-01.jpg",
-      "/images/projects/ituna-arena/ituna-02.jpg",
-      "/images/projects/ituna-arena/ituna-03.jpg",
-      "/images/projects/ituna-arena/ituna-04.jpg",
-      "/images/projects/ituna-arena/ituna-05.jpg",
-      "/images/projects/ituna-arena/ituna-06.jpg",
-    ],
-  },
-  {
-    id: "viscount-shop",
-    title: "RM of Viscount Shop",
-    year: "2026",
-    location: "Viscount, SK",
-    description: "Full completed steel building for the Rural Municipality of Viscount.",
-    folder: "viscount-shop",
-    images: [
-      "/images/projects/viscount-shop/viscount-01.jpg",
-      "/images/projects/viscount-shop/viscount-02.jpg",
-      "/images/projects/viscount-shop/viscount-03.jpg",
-      "/images/projects/viscount-shop/viscount-04.jpg",
-      "/images/projects/viscount-shop/viscount-05.jpg",
-      "/images/projects/viscount-shop/viscount-06.jpg",
-      "/images/projects/viscount-shop/viscount-07.jpg",
-      "/images/projects/viscount-shop/viscount-08.jpg",
-    ],
-  },
-  {
-    id: "rankin-inlet",
-    title: "Rankin Inlet Shop",
-    year: "2026",
-    location: "Rankin Inlet, Nunavut",
-    description: "Full steel building construction with crane installation in a remote northern community.",
-    folder: "rankin-inlet",
-    images: [
-      "/images/projects/rankin-inlet/rankin-01.jpg",
-      "/images/projects/rankin-inlet/rankin-02.jpg",
-      "/images/projects/rankin-inlet/rankin-03.jpg",
-      "/images/projects/rankin-inlet/rankin-04.jpg",
-      "/images/projects/rankin-inlet/rankin-05.jpg",
-      "/images/projects/rankin-inlet/rankin-06.jpg",
-      "/images/projects/rankin-inlet/rankin-07.jpg",
-    ],
-  },
-  {
-    id: "golden-bc",
-    title: "Golden Shop",
-    year: "2025",
-    location: "Golden, BC",
-    description: "Full steel building in the mountain community of Golden, British Columbia.",
-    folder: "golden-bc",
-    images: [
-      "/images/projects/golden-bc/golden-01.jpg",
-      "/images/projects/golden-bc/golden-02.jpg",
-      "/images/projects/golden-bc/golden-03.jpg",
-      "/images/projects/golden-bc/golden-04.jpg",
-      "/images/projects/golden-bc/golden-05.jpg",
-      "/images/projects/golden-bc/golden-06.jpg",
-      "/images/projects/golden-bc/golden-07.jpg",
-    ],
-  },
-  {
-    id: "muscowpetung",
-    title: "Muscowpetung Shop",
-    year: "2025",
-    location: "Muscowpetung, SK",
-    description: "Commercial steel shop construction for Muscowpetung First Nation.",
-    folder: "muscowpetung",
-    images: [
-      "/images/projects/muscowpetung/muscowpetung-01.jpg",
-      "/images/projects/muscowpetung/muscowpetung-02.jpg",
-      "/images/projects/muscowpetung/muscowpetung-03.jpg",
-      "/images/projects/muscowpetung/muscowpetung-04.jpg",
-      "/images/projects/muscowpetung/muscowpetung-05.jpg",
-      "/images/projects/muscowpetung/muscowpetung-06.jpg",
-      "/images/projects/muscowpetung/muscowpetung-07.jpg",
-    ],
-  },
-];
+export function formatPrice(price: number) {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(price);
+}

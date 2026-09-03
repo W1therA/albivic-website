@@ -1,51 +1,55 @@
 import type { Metadata } from "next";
-import { DM_Sans, Outfit } from "next/font/google";
+import { Manrope, Syne } from "next/font/google";
+import { CartDrawer } from "@/components/shop/CartDrawer";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { company } from "@/lib/content";
+import { CartProvider } from "@/lib/cart";
+import { brand } from "@/lib/content";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const outfit = Outfit({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-syne",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${company.name} | Steel Buildings & Construction`,
-    template: `%s | ${company.name}`,
+    default: `${brand.name} | Men’s Looks Optimization`,
+    template: `%s | ${brand.name}`,
   },
-  description:
-    "Albivic Construction builds pre-engineered steel buildings, commercial shops, and community facilities across Western Canada and the North. Principal: Victor Rotaru.",
+  description: brand.description,
   keywords: [
-    "Albivic Construction",
-    "steel buildings",
-    "Saskatchewan construction",
-    "commercial shops",
-    "Victor Rotaru",
+    "SharpStack",
+    "men's grooming",
+    "looksmaxxing",
+    "jawline trainer",
+    "ice roller men",
+    "men skincare tools",
   ],
   openGraph: {
-    title: company.name,
-    description: company.tagline,
+    title: brand.name,
+    description: brand.tagline,
     type: "website",
-    locale: "en_CA",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${syne.variable}`}>
       <body className="min-h-screen font-sans antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

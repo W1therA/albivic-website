@@ -1,80 +1,51 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { company } from "@/lib/content";
-import { VideoBackground } from "@/components/ui/VideoBackground";
+import { brand } from "@/lib/content";
 
 export function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <VideoBackground
-        src="/videos/hero.mp4"
-        poster="/videos/hero-poster.jpg"
-        overlayClassName="bg-gradient-to-b from-charcoal/70 via-charcoal/55 to-charcoal/80"
-      />
-
-      <div className="relative z-10 mx-auto max-w-5xl px-5 pb-24 pt-32 text-center md:px-8">
-        <motion.p
-          className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-copper"
-          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {company.serviceArea}
-        </motion.p>
-        <motion.h1
-          className="font-display text-5xl font-bold uppercase tracking-[0.04em] leading-tight text-cream sm:text-6xl md:text-7xl lg:text-8xl"
-          initial={reduceMotion ? false : { opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-        >
-          Albivic
-          <br />
-          <span className="text-4xl font-semibold tracking-wide text-brand sm:text-5xl md:text-6xl lg:text-7xl">
-            Construction
-          </span>
-        </motion.h1>
-        <motion.p
-          className="mx-auto mt-6 max-w-xl text-lg text-steel-light md:text-xl"
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          {company.tagline}
-        </motion.p>
-        <motion.div
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-        >
-          <Link
-            href="/#services"
-            className="rounded-sm bg-brand px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-cream transition-colors hover:bg-brand-light"
-          >
-            Explore what we offer
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-sm border border-cream/40 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-cream transition-colors hover:border-brand hover:text-brand"
-          >
-            Get a free estimate
-          </Link>
-        </motion.div>
+    <section className="relative min-h-[100svh] overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1621607512214-68297471b618?auto=format&fit=crop&w=2000&q=80"
+          alt="Men’s grooming tools on a concrete bathroom counter"
+          fill
+          priority
+          className="hero-pan object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-mist via-mist/88 to-mist/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-mist via-transparent to-mist/40" />
       </div>
 
-      <a
-        href="#services"
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 text-cream/70 transition-colors hover:text-copper"
-        aria-label="Scroll down"
-      >
-        <span className="text-xs uppercase tracking-widest">Scroll Down</span>
-        <ChevronDown className="h-5 w-5 animate-bounce" />
-      </a>
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-end px-5 pb-16 pt-28 md:items-center md:px-8 md:pb-24">
+        <div className="max-w-xl">
+          <p className="animate-rise font-display text-5xl font-bold tracking-tight text-ink sm:text-6xl md:text-7xl lg:text-8xl">
+            {brand.name}
+          </p>
+          <h1 className="animate-rise-delay-1 mt-5 max-w-lg font-display text-3xl font-semibold leading-[1.1] tracking-tight text-ink sm:text-4xl md:text-5xl text-balance">
+            Look sharper in three minutes a day.
+          </h1>
+          <p className="animate-rise-delay-2 mt-5 max-w-md text-base leading-relaxed text-ink-soft md:text-lg">
+            Men’s looks-optimization tools for skin, jaw, hair, and posture —
+            sold as a simple daily stack.
+          </p>
+          <div className="animate-rise-delay-3 mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/#kit"
+              className="inline-flex rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-mist transition hover:bg-ink-soft"
+            >
+              Shop Morning Sharp Kit
+            </Link>
+            <Link
+              href="/#stack"
+              className="inline-flex rounded-full border border-ink/20 bg-white/70 px-6 py-3.5 text-sm font-semibold text-ink backdrop-blur transition hover:border-ink"
+            >
+              See the stack
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

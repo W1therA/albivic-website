@@ -1,21 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Albivic Construction business-card palette */
-  --color-charcoal: #111318;
-  --color-charcoal-light: #1c1f26;
-  --color-steel: #7a8490;
-  --color-steel-light: #b8c0c8;
-  --color-brand: #4a99d3;
-  --color-brand-light: #6badde;
-  --color-brand-dark: #357eb5;
-  --color-cream: #f4f3ed;
-  --color-sand: #e8e6df;
-  /* Aliases so existing copper utilities resolve to brand blue */
-  --color-copper: #4a99d3;
-  --color-copper-light: #6badde;
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #14181c;
+  --color-ink-soft: #2a3138;
+  --color-fog: #e7ecef;
+  --color-mist: #f3f6f7;
+  --color-stone: #c5ced4;
+  --color-accent: #1f6f64;
+  --color-accent-deep: #15574e;
+  --color-accent-soft: #d7ebe7;
+  --color-signal: #c45c26;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -23,8 +19,8 @@ html {
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-charcoal);
+  background: var(--color-mist);
+  color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
@@ -32,14 +28,83 @@ body {
   font-family: var(--font-display);
 }
 
-/* Soft curve accent inspired by business-card swoop */
-.brand-curve {
-  clip-path: ellipse(120% 100% at 50% 0%);
+/* Cold concrete atmosphere */
+.atmosphere {
+  background:
+    radial-gradient(ellipse 90% 60% at 10% -10%, rgba(31, 111, 100, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgba(196, 92, 38, 0.08), transparent 45%),
+    linear-gradient(180deg, #eef3f5 0%, #f3f6f7 40%, #e8eef1 100%);
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slow-drift {
+  from {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(-1.5%, 1%, 0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay-1 {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.animate-rise-delay-3 {
+  animation: rise-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.hero-pan {
+  animation: slow-drift 18s ease-in-out alternate infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .animate-rise,
+  .animate-rise-delay-1,
+  .animate-rise-delay-2,
+  .animate-rise-delay-3,
+  .hero-pan {
+    animation: none !important;
   }
 
   *,
